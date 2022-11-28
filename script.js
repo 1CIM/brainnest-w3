@@ -56,9 +56,7 @@ const game = () => {
     playRound();
   } while (rounds < 5);
 
-  if (humanScore === pcScore) {
-    console.log('The game concluded in a TIE');
-  } else if (humanScore < pcScore) {
+  if (humanScore < pcScore) {
     console.log('GG EZ NOOB, PLZ UNINSTALL TRASH');
   } else {
     console.log('WOW gz man you must be sooo proud you won... get out and get a life');
