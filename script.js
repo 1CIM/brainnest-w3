@@ -26,7 +26,7 @@ const resetAll = () => {
 
 const overView = () => {
   console.log(`The game ended in ${rounds + ties} rounds. \nYou won ${humanScore}, \nLost ${pcScore} and \nTied ${ties} times.`);
-  console.log(`And you have now played ${playedGames > 1 ? 'games' : 'game'}.`);
+  console.log(`And you have now played ${playedGames} ${playedGames > 1 ? 'games' : 'game'}.`);
 };
 
 function playRound() {
@@ -67,15 +67,19 @@ function replay() {
   if (playAgain === 'yes' || playAgain === 'no') {
     if(playAgain === 'no') {
       alert(`Okay bye! 
-      \nTou played ${playedGames} ${playedGames === 1 ? 'Game' : 'Games'}
-      \nYour final score was ${wonGames} ${wonGames === 1 ? 'Won game' : 'Won games'} 
-      \n and you lost ${lostGames} ${lostGames === 1 ? 'Game' : 'Games'}`);
+      \nYou played ${playedGames} ${playedGames === 1 ? 'Game' : 'Games'}
+      \nYou won ${wonGames} ${wonGames === 1 ? 'game' : 'games'} 
+      \nAnd you lost ${lostGames} ${lostGames === 1 ? 'Game' : 'Games'}`);
       resetAll();
     } else {
       game();
     }
   } else {
-    alert(`You need to type yes or no not ${playAgain}`);
+    if (playAgain === '') {
+      alert(`You need to type something. And that something has to be YES or NO`);
+    } else {
+      alert(`You need to type YES or NO not ${playAgain}`);
+    }
     replay();
   }
 };
